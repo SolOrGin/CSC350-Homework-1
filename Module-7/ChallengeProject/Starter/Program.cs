@@ -85,16 +85,17 @@ foreach (string name in studentNames)
             sumExamScores += score;  //change this name
 
         else
+        {
             sumExtraCreditScores += score;   // anything after greater than exam assignments is extracredit and gets added to the sum for extracredit
             extraCreditAssignment += 1;   //this will keep track of how many extracredit assignments we got
+        }
     }
 
     currentStudentExamScore = (decimal)sumExamScores / examAssignments;
     currentStudentExtraCreditScore = (decimal)sumExtraCreditScores / extraCreditAssignment;
     currentStudentGrade = (sumExamScores + ((decimal)sumExtraCreditScores / 10)) / examAssignments;
     
-    decimal extraCreditPoints;
-    extraCreditPoints = (decimal)((sumExtraCreditScores / 10) / examAssignments);
+    decimal extraCreditPoints = ((decimal)sumExtraCreditScores / 10) / examAssignments;
 
 
     if (currentStudentGrade >= 97)
