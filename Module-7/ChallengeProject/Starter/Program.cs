@@ -59,15 +59,18 @@ foreach (string name in studentNames)
     else if (currentStudent == "Logan")
         studentScores = loganScores;
 
-    int sumAssignmentScores = 0;
+    //int sumAssignmentScores = 0;
+    // just like module 6 split this 
+    
+    int sumExamScores = 0;
+    int sumExtraCreditScores = 0;
 
     decimal currentStudentGrade = 0;
+    decimal currentStudentExamScore = 0;
+    decimal currentStudentExtraCreditScore = 0;
 
     int gradedAssignments = 0;
-
-    decimal currentStudentExamScore = 0;
-    
-    decimal currentStudentExtraCreditScore = 0;
+    int extraCreditAssignment = 0;
 
 
     /* 
@@ -79,13 +82,20 @@ foreach (string name in studentNames)
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
-            sumAssignmentScores += score;
+            sumExamScores += score;  //change this name
 
         else
-            sumAssignmentScores += score / 10;
+            sumExtraCreditScores += score;   // anything after greater than exam assignments is extracredit and gets added to the sum for extracredit
+            extraCreditAssignment += 1;   //this will keep track of how many extracredit assignments we got
     }
 
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    currentStudentExamScore = (decimal)sumExamScores / examAssignments;
+    currentStudentExtraCreditScore = (decimal)sumExtraCreditScores / extraCreditAssignment;
+    currentStudentGrade = (sumExamScores + ((decimal)sumExtraCreditScores / 10)) / examAssignments;
+    
+    decimal extraCreditPoints;
+    extraCreditPoints = (decimal)((sumExtraCreditScores / 10) / examAssignments);
+
 
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -129,7 +139,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCreditScore} ({currentStudentExtraCreditScore} pts)");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCreditScore} ({extraCreditPoints} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
