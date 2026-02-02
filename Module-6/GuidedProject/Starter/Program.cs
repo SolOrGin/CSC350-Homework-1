@@ -12,21 +12,25 @@ string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
 
 foreach (string name in studentNames)
 {
-    Console.WriteLine($"{name}");     //so I noticed that in c++ you do endl; for a new line but in c# you dont need to do that it does it automatically
+    //Console.WriteLine($"{name}");     //so I noticed that in c++ you do endl; for a new line but in c# you dont need to do that it does it automatically
+    if (name == "Sophia")
+    {
+        int sophiaSum = 0;
+        decimal sophiaScore;
+
+        foreach (int score in sophiaScores)
+        {
+            sophiaSum += score;
+        }
+
+        sophiaScore = (decimal)sophiaSum / currentAssignments;  //so here we convert the in sophiaSum to a decimal or in c++ a float
+
+        Console.WriteLine("Student\t\tGrade\n");                    //I see we can use \t for tab and \n for new line like in c++
+        Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+    }
 }
 
-int sophiaSum = 0;
-decimal sophiaScore;
 
-foreach (int score in sophiaScores)
-{
-    sophiaSum += score;
-}
-
-sophiaScore = (decimal)sophiaSum / currentAssignments;  //so here we convert the in sophiaSum to a decimal or in c++ a float
-
-Console.WriteLine("Student\t\tGrade\n");                    //I see we can use \t for tab and \n for new line like in c++
-Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
 
 Console.WriteLine("Press the Enter key to continue");
 Console.ReadLine();
