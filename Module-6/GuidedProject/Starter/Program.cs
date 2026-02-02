@@ -1,12 +1,12 @@
 ﻿using System;
 
 // initialize variables - graded assignments 
-int currentAssignments = 5;
+int examAssignments= 5;
 
-int[] sophiaScores = new int[] {90, 86, 87, 98, 100};
-int[] andrewScores = new int[] {92, 89, 81, 96, 90};
-int[] emmaScores = new int[] {90, 85, 87, 98, 68};
-int[] loganScores = new int[] {90, 95, 87, 88, 96};
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
 
 string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
 
@@ -39,12 +39,23 @@ foreach (string name in studentNames)
 
     decimal currentStudentGrade = 0;
 
+    int gradedAssignments = 0;
+
     foreach (int score in studentScores)
     {
-        sumAssignmentScores += score;
+        gradedAssignments += 1;
+        
+        if (gradedAssignments <= examAssignments)
+            sumAssignmentScores += score;
+        
+        else
+            sumAssignmentScores += score / 10;
+
+        // okay so the counter makes sure that each time it loops it is supposed to follow the original now changed variable examAssignments 
+        // so that the 10% weighing factor happens to the extra credit before being added other wise the exam scores will be inflated
     }
 
-    currentStudentGrade = (decimal)sumAssignmentScores/ currentAssignments;  
+    currentStudentGrade = (decimal)sumAssignmentScores/ examAssignments;  
     //so here we convert the in sophiaSum to a decimal or in c++ a float
     //moving away from sophia now and making it anyone, any student. 
     // why is it (decimal)(sumAssignmentScores)? okay I see this is optional and safe but looks like optional
