@@ -3,15 +3,15 @@
 // initialize variables - graded assignments 
 int currentAssignments = 5;
 
-int[] sophiaAssignmentScores = new int[] {90, 86, 87, 98, 100};
-int[] andrewAssignmentScore = new int[] {92, 89, 81, 96, 90};
-int[] emmaAssignmentScore = new int[] {90, 85, 87, 98, 68};
-int[] loganAssignmentScore = new int[] {90, 95, 87, 88, 96};
+int[] sophiaScores = new int[] {90, 86, 87, 98, 100};
+int[] andrewScore = new int[] {92, 89, 81, 96, 90};
+int[] emmaScore = new int[] {90, 85, 87, 98, 68};
+int[] loganScore = new int[] {90, 95, 87, 88, 96};
 
 int sophiaSum = 0;
 decimal sophiaScore;
 
-foreach (int score in sophiaAssignmentScores)
+foreach (int score in sophiaScores)
 {
     sophiaSum += score;
 }
