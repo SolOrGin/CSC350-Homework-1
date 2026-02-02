@@ -8,6 +8,13 @@ int[] andrewScore = new int[] {92, 89, 81, 96, 90};
 int[] emmaScore = new int[] {90, 85, 87, 98, 68};
 int[] loganScore = new int[] {90, 95, 87, 88, 96};
 
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+foreach (string name in studentNames)
+{
+    Console.WriteLine($"{name}");     //so I noticed that in c++ you do endl; for a new line but in c# you dont need to do that it does it automatically
+}
+
 int sophiaSum = 0;
 decimal sophiaScore;
 
